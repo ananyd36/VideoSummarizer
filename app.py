@@ -57,7 +57,7 @@ if st.button("🔍 Search for Videos", key="search_video_button"):
     else:
         try:
             with st.spinner("Searching for relevant videos..."):
-                search_prompt = f"Find relevant videos on '{video_query}'. Provide a list of informative YouTube or other video links with their titles. Add the link at the end of the string to ease the capture of the link using the code(selected_video.split(' ')[-1])"
+                search_prompt = f"Find relevant videos on '{video_query}'. Provide a list of informative latest YouTube or other video links with their titles. Add the link at the end of the string to ease the capture of the link using the code(selected_video.split(' ')[-1])"
                 search_result = multimodal_Agent.run(search_prompt)
                 st.session_state.video_options = search_result.content.strip().split('\n')
                 st.session_state.video_searched = True  # Set flag to show dropdown
@@ -101,3 +101,4 @@ if st.session_state.selected_video:
             
             st.subheader("Analysis Result")
             st.markdown(response.content)
+            
